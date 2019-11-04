@@ -1,5 +1,19 @@
 # WhatsappDirect
 
+
+# Validasi no belum diisi
+![alt text](https://raw.githubusercontent.com/vickyKDV/WhatsappDirect/master/wa1.jpeg)
+
+# Validasi no tidak valid
+![alt text](https://raw.githubusercontent.com/vickyKDV/WhatsappDirect/master/wa2.jpeg)
+
+# Direct ke playstore jika whatsapp belum terinstall
+![alt text](https://raw.githubusercontent.com/vickyKDV/WhatsappDirect/master/wa3.jpeg)
+
+
+
+
+
 Cara implementasi
    
    
