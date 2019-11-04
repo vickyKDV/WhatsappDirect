@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText editText = findViewById(R.id.edtnohp);
+        final EditText edthp = findViewById(R.id.edtnohp);
+        final EditText edtpesan = findViewById(R.id.edtpesan);
 
 
         findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-            new WhatsappIntent(MainActivity.this,editText.getText().toString(),"Halloo");
+            new WhatsappIntent(MainActivity.this,edthp.getText().toString(),edtpesan.getText().toString());
 
 
             }
