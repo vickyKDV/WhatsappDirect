@@ -1,6 +1,26 @@
 # WhatsappDirect
 
+Cara implementasi
+   
+   
+   Set pada build.gradle application
+   
+     allprojects {
+          repositories {
+             ...
+             ...
+             maven { url "https://jitpack.io" }
 
+          }
+      }
+    
+   Set pada build.gradle module
+    
+    dependencies {
+        ...
+        ...
+        implementation 'com.github.vickykdv:CircleRectImageView:1.0'
+    }
 
 Cara menggunakan
     
