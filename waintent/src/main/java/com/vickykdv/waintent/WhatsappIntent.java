@@ -29,6 +29,7 @@ public class WhatsappIntent  {
             }
             else {
 
+                try {
 
 
                     String phoneshub = phone;
@@ -46,19 +47,10 @@ public class WhatsappIntent  {
                         Log.d("WhatsappInten", "phonetemp: " + phonetemp);
 
                         Log.d("WhatsappInten", "phoneshub: " + phoneshub);
-//
-//                        Intent sendIntent =new Intent("android.intent.action.MAIN");
-//                        sendIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(imageFile));
-//                        sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
-//                        sendIntent.putExtra("jid", phonetemp +"@s.whatsapp.net");
-//                        sendIntent.putExtra(Intent.EXTRA_TEXT,pesan);
-//                        sendIntent.setAction(Intent.ACTION_SEND);
-//                        sendIntent.setType("text/plain");
-//                        sendIntent.setPackage("com.whatsapp");
-//                        sendIntent.setType("image/png");
+
 
                         Intent wa = new Intent("android.intent.action.SEND");
-                        wa.setComponent(new ComponentName("com.whatsapp","com.whatsapp.Conversation"));
+                        wa.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
                         wa.putExtra(Intent.EXTRA_TEXT, pesan);
                         wa.setAction(Intent.ACTION_SEND);
                         wa.setType("text/plain");
@@ -66,32 +58,39 @@ public class WhatsappIntent  {
                         wa.putExtra("jid", phonetemp + "@s.whatsapp.net");
 
 
-                        if (wa.resolveActivity(activity.getPackageManager()) == null) {
-
-                            Intent w4b = new Intent("android.intent.action.MAIN");
-                            w4b.putExtra(Intent.EXTRA_TEXT, pesan);
-                            w4b.setAction(Intent.ACTION_SEND);
-                            w4b.setPackage("com.whatsapp.w4b");
-                            w4b.putExtra("jid", phonetemp + "@s.whatsapp.w4b.net");
-                            w4b.setType("text/plain");
-                            w4b.setComponent(new ComponentName("com.whatsapp.w4b", "com.whatsapp.Conversation"));
-                            activity.startActivity(w4b);
-                            if (w4b.resolveActivity(activity.getPackageManager()) == null) {
-                                Toast.makeText(activity, "Whatsapp belum terinstall", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(Intent.ACTION_VIEW);
-                                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"));
-                                activity.startActivity(intent);
-                                return;
-                            }
-                            return;
-                        }
+//                        if (wa.resolveActivity(activity.getPackageManager()) == null) {
+//
+//                            Intent w4b = new Intent("android.intent.action.MAIN");
+//                            w4b.putExtra(Intent.EXTRA_TEXT, pesan);
+//                            w4b.setAction(Intent.ACTION_SEND);
+//                            w4b.setPackage("com.whatsapp.w4b");
+//                            w4b.putExtra("jid", phonetemp + "@s.whatsapp.w4b.net");
+//                            w4b.setType("text/plain");
+//                            w4b.setComponent(new ComponentName("com.whatsapp.w4b", "com.whatsapp.w4b.Conversation"));
+//                            activity.startActivity(w4b);
+//                            if (w4b.resolveActivity(activity.getPackageManager()) == null) {
+//                                Toast.makeText(activity, "Whatsapp belum terinstall", Toast.LENGTH_SHORT).show();
+//                                Intent intent = new Intent(Intent.ACTION_VIEW);
+//                                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"));
+//                                activity.startActivity(intent);
+//                                return;
+//                            }
+//                            return;
+//                        }else {
 
                         activity.startActivity(wa);
+//                        }
 
                     } else {
                         Toast.makeText(activity, "No depan harus diawali 0 !!", Toast.LENGTH_SHORT).show();
                         Log.d("WhatsappInten", "onCreate: " + phonetemp);
                     }
+                }catch (Exception e){
+                       Toast.makeText(activity, "Whatsapp belum terinstall", Toast.LENGTH_SHORT).show();
+                       Intent intent = new Intent(Intent.ACTION_VIEW);
+                       intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"));
+                       activity.startActivity(intent);
+                }
             }
         }
     }
